@@ -1,0 +1,25 @@
+Definition 4:
+
+Write a PL/SQL block to delete the record of employee for given EID.
+
+set serveroutput on;
+
+declare
+
+v_eid emp.eid%type;
+
+begin
+
+v_eid := &amp;enter_eid;
+
+delete from emp where eid = v_eid;
+
+if sql%found then
+dbms_output.put_line(&#39;employee record deleted successfully.&#39;);
+else
+dbms_output.put_line(&#39;employee not found.&#39;);
+end if;
+commit;
+
+end;
+/
