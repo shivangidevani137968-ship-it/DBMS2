@@ -1,0 +1,28 @@
+Definition 3:
+
+Write a PL/SQL block which displays all records of Male employees
+working in HR Dept from EMP table.
+
+set serveroutput on;
+
+declare
+
+cursor c_emp is select *from empwhere gender = &#39;
+male&#39;
+deptname = &#39;
+hr&#39;;
+v_emp emp%rowtype;
+
+begin
+
+open c_emp;
+loop
+fetch c_emp into v_emp;
+exit when c_emp%notfound;
+dbms_output.put_line(v_emp.empno || &#39; &#39;||v_emp.ename || &#39; &#39;
+||v_emp.deptname || &#39; &#39; ||v_emp.gender || &#39; &#39; ||v_emp.sal);
+end loop;
+close c_emp;
+
+end;
+/
