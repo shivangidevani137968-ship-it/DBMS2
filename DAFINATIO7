@@ -1,0 +1,30 @@
+Definition 7:
+
+Write a PL/SQL block to accept product name, qty and price from user
+and then calculate discount in Rs. based on the given (%).
+
+set serveroutput on;
+  
+declare
+  
+v_pname varchar2(50);
+v_qty number;
+v_price number;
+v_percent number;
+v_total number;
+v_discount number;
+
+begin
+  
+v_pname := &#39;&amp;enter_product_name&#39;;
+v_qty := &amp;enter_quantity;
+v_price := &amp;enter_price;
+v_percent := &amp;enter_discount_percent;
+v_total := v_qty * v_price;
+v_discount := (v_total * v_percent) / 100;
+dbms_output.put_line(&#39;product name : &#39; || v_pname);
+dbms_output.put_line(&#39;total amount : &#39; || v_total);
+dbms_output.put_line(&#39;discount (rs): &#39; || v_discount);
+
+end;
+/
