@@ -1,0 +1,28 @@
+Definition 5:
+
+Write a PL/SQL block that calculates the simple interest based on given
+principal amount, rate of interest and number of years.
+
+set serveroutput on;
+
+declare
+
+v_principal number;
+v_rate number;
+v_years number;
+v_si number;
+
+begin
+
+v_principal := &amp;enter_principal;
+v_rate := &amp;enter_rate;
+v_years := &amp;enter_years;
+v_si := (v_principal * v_rate * v_years) / 100;
+
+dbms_output.put_line(&#39;principal amount : &#39; || v_principal);
+dbms_output.put_line(&#39;rate of interest : &#39; || v_rate);
+dbms_output.put_line(&#39;number of years : &#39; || v_years);
+dbms_output.put_line(&#39;simple interest : &#39; || v_si);
+
+end;
+/
